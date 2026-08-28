@@ -1,97 +1,143 @@
-<div align="center">
+# Drug Loan Management System
 
-# **Drug Loan Management System**
-
-### _An efficient, real-time application for managing inter-hospital drug loans, built with Vue 3, TypeScript, and Supabase._
-
-<br>
-
-<p>
-  <a href="https://github.com/suradet-ps/drug-loan-app/commits/main">
-    <img src="https://img.shields.io/github/last-commit/suradet-ps/drug-loan-app?style=for-the-badge&color=blue&logo=github" alt="Last Commit">
-  </a>
-  <a href="https://github.com/suradet-ps/drug-loan-app">
-    <img src="https://img.shields.io/github/languages/top/suradet-ps/drug-loan-app?style=for-the-badge&color=3178C6&logo=typescript" alt="Top Language">
-  </a>
-  <a href="https://github.com/suradet-ps/drug-loan-app">
-    <img src="https://img.shields.io/github/languages/count/suradet-ps/drug-loan-app?style=for-the-badge&color=informational" alt="Language Count">
-  </a>
-</p>
-
-</div>
+```
+██████╗ ██████╗ ██╗   ██╗ ██████╗██╗      ██████╗  █████╗ ███╗   ██╗
+██╔══██╗██╔══██╗██║   ██║██╔════╝██║     ██╔═══██╗██╔══██╗████╗  ██║
+██║  ██║██████╔╝██║   ██║██║  ███╗██║     ██║   ██║███████║██╔██╗ ██║
+██║  ██║██╔══██╗██║   ██║██║   ██║██║     ██║   ██║██╔══██║██║╚██╗██║
+██████╔╝██║  ██║╚██████╔╝╚██████╔╝███████╗╚██████╔╝██║  ██║██║ ╚████║
+╚═════╝ ╚═╝  ╚═╝ ╚═════╝  ╚═════╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝
+```
 
 ---
 
-This repository contains the source code for a comprehensive Drug Loan Management System designed for Sabot Hospital. The application provides a secure and intuitive interface for pharmacists to track drug loans and returns between partner hospitals, ensuring accuracy and accountability.
+## ◆ PULSE
 
-The system is built as a Single Page Application (SPA) using a modern frontend stack and leverages **Supabase** for its backend, including authentication and a real-time database.
+A loaned drug is a debt with a countdown. When one hospital borrows from
+another, someone must know how much went out, how much came back, and
+when the silence has gone on too long. This system tracks every drug loan
+and return between partner hospitals - a real-time dashboard for
+outstanding balances, a progress bar per loan, and a complete
+transaction history for the audit. The debt is always visible; the
+accountability is the point.
 
-## ✨ Features
+| Auth ▣ | Loans ▣ | Returns ▣ | History ▣ |
+|---|---|---|---|
 
--   **Secure Authentication:** Users must log in to access the system, powered by Supabase Auth.
--   **Real-time Dashboard:** A central dashboard displays key metrics, including the number of outstanding loans and total quantity pending return.
--   **Loan & Return Management:** Dedicated forms for easily recording new drug loans and processing returns against existing loans.
--   **Outstanding Loan Tracking:** A dynamic list shows all active loans, their current return status, and a progress bar for visual tracking.
--   **Complete Transaction History:** A detailed log of every loan and return transaction for auditing and reference.
--   **Centralized State Management:** Uses **Pinia** to manage application state, ensuring data consistency across components.
--   **Type-Safe Codebase:** Fully written in **TypeScript** to enhance developer experience and reduce runtime errors.
--   **Responsive Design:** The UI is crafted with a custom, modern design that works seamlessly on both desktop and mobile devices.
+*The full loop - record, track, return, audit - is sealed.*
 
-## 🛠️ Built With the Tools and Technologies:
+> Built with Vue 3 + TypeScript + Pinia, backed by Supabase Auth and a
+> real-time database, written for the pharmacists of Sabot Hospital.
+>
+> **suradet-ps**, artifact keeper
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D" alt="Vue.js">
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
-  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite">
-  <img src="https://img.shields.io/badge/Pinia-FFD859?style=for-the-badge&logo=pinia&logoColor=black" alt="Pinia">
-  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase">
-  <img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white" alt="Vitest">
-  <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white" alt="ESLint">
-  <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=black" alt="Prettier">
-</p>
+---
 
-## 🚀 Getting Started
+## ◆ IGNITION
 
-To get a local copy up and running, follow these simple steps.
+One package manager, four commands.
 
-### Prerequisites
+```
+⟫ pnpm install
+⟫ pnpm dev
+```
 
--   Node.js (v20 or higher recommended)
--   pnpm package manager (`npm install -g pnpm`)
+Open [http://localhost:5173](http://localhost:5173).
 
-### Installation
+```
+⟫ pnpm build          # type-check, then production build
+⟫ pnpm test:unit      # Vitest
+⟫ pnpm lint           # ESLint + Oxc
+⟫ pnpm format         # Prettier
+```
 
-1.  **Clone the repository:**
-    ```sh
-    git clone https://github.com/suradet-ps/drug-loan-app.git
-    cd drug-loan-app
-    ```
+<details>
+<summary>Environment</summary>
 
-2.  **Install dependencies:**
-    ```sh
-    pnpm install
-    ```
+A `.env` file with the Supabase credentials from Project Settings > API:
 
-3.  **Set up environment variables:**
+```
+VITE_SUPABASE_URL="YOUR_SUPABASE_PROJECT_URL"
+VITE_SUPABASE_ANON_KEY="YOUR_SUPABASE_ANON_KEY"
+```
 
-    Create a `.env` file in the root of the project and add your Supabase credentials. You can find these in your Supabase project dashboard under `Project Settings > API`.
+</details>
 
-    ```env
-    VITE_SUPABASE_URL="YOUR_SUPABASE_PROJECT_URL"
-    VITE_SUPABASE_ANON_KEY="YOUR_SUPABASE_ANON_KEY"
-    ```
+---
 
-4.  **Run the development server:**
-    ```sh
-    pnpm dev
-    ```
-    The application will be available at `http://localhost:5173`.
+## ◆ ANATOMY
 
-## 📜 Available Scripts
+One SPA, one ledger, two directions of trust.
 
--   `pnpm dev`: Starts the development server with hot-reloading.
--   `pnpm build`: Type-checks and builds the application for production.
--   `pnpm preview`: Serves the production build locally for testing.
--   `pnpm test:unit`: Runs unit tests using Vitest.
--   `pnpm lint`: Lints the codebase with ESLint and Oxc.
--   `pnpm format`: Formats all source files with Prettier.
+- **Authenticates** - Supabase Auth gates the door; a pharmacist who
+  cannot sign in cannot see a single patient-adjacent quantity.
+- **Loans** - a dedicated form records the loan as it happens: which
+  drug, how much, to which partner hospital, on which date. The ledger
+  entry is born complete.
+- **Returns** - processing a return walks against the existing loans, so
+  a quantity lands back where it belongs instead of floating in a
+  comment.
+- **Tracks** - the dashboard shows outstanding loans and the total
+  quantity pending return; each active loan carries its return status and
+  a progress bar. The overdue story tells itself.
+- **Remembers** - every loan and every return is a row in the
+  transaction history, timestamped and reviewable - the audit trail is
+  the product's spine.
+- **Speaks** - Pinia keeps the state consistent across components and
+  TypeScript keeps the whole codebase type-safe, from store to screen.
+
+---
+
+## ◆ RITUALS
+
+**The core ceremony** - the loan and its return:
+
+1. Sign in. The dashboard answers first: what is outstanding, how much
+   is pending return.
+2. Record a loan: drug, quantity, partner hospital, date. The progress
+   bar for that loan is born empty.
+3. When the boxes come back, process the return against the loan. The
+   quantity lands, the bar moves, the balance updates.
+4. Audit anytime: the transaction history holds every entry, in order,
+   for reference.
+
+**The ceremony of the balance** - no number is trusted to memory. The
+outstanding total is computed, the per-loan progress is rendered, and
+the history is immutable to the eye: what went out and what came back,
+side by side.
+
+**The ceremony of the record** - every action is typed, stored, and
+queryable. If a question is asked six months later, the answer is a
+filter away.
+
+---
+
+## ◆ ECHOES
+
+**Where this artifact is heading**
+
+```
+auth     ▸ Supabase Auth gate ─────────────────────────────────────── ▸ sealed
+ledger   ▸ loan + return forms against real-time balances ─────────── ▸ sealed
+audit    ▸ complete transaction history, per-loan progress ────────── ▸ sealed
+```
+
+**Raising the artifact** - the bar is local and explicit: `vue-tsc`
+type-checking, Vitest unit tests, ESLint + Oxc linting, and Prettier
+formatting all pass before a pull request earns a review. Open an issue
+first to discuss a change.
+
+**Status** - quality gates are run per-contributor (this repo carries no
+CI workflow yet); contributions are welcome through the usual fork and
+pull request path.
+
+---
+
+```
+  ─────────────────────────────────────────
+   A loan is only as honest
+   as the ledger that remembers it.
+  ─────────────────────────────────────────
+```
+
+Open source under the [MIT License](LICENSE).
